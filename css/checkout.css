@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* базовый шрифт */
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+/* ХЕДЕР */
+
+.header {
+  border-bottom: 1px solid #000;
+  margin-bottom: 40px;
+}
+
+/* ОФОРМЛЕНИЕ слева, POSTERIUM справа */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 40px 12px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* левая колонка > правая */
+  column-gap: 40px;
+  align-items: baseline; /* выравнивание по базовой линии (End) */
+}
+
+/* ОФОРМЛЕНИЕ */
+.header-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;    
+  font-size: 64px;
+  text-transform: uppercase;
+}
+
+/* ЛОГО */
+.header-logo{
+  font-family: "Better VCR", sans-serif;
+  font-weight: 400;
+
+  font-size: clamp(20px, 3vw, 37px); /* макс 37, при сжатии уменьшается */
+  letter-spacing: 0.2em;
+
+
+  color: transparent;
+  -webkit-text-stroke: 1px #0736FE;
+  cursor: default;
+}
+
+/* ховер*/
+.header-logo:hover {
+  color: #0736FE;
+}
+
+/* МЕНЮ  */
+.header-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 12px;
+
+  display: grid;
+  grid-auto-flow: column; /* элементы раскладываются в строку, одна за другой по колонкам */
+  justify-content: start; /*  левый край */
+  column-gap: 40px;
+
+  font-size: 18px;
+  border-bottom: 1px solid #000;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+}
+
+.header-nav a::after {
+  content: "";  /*  псевдоэлемент */
+  position: absolute; /* любая позиция */
+  left: 0; /* левый край*/
+  bottom: -4px; /* ниже текста на 4px */
+  width: 0;
+  height: 1px;
+  background: #000;
+  transition: width 0.2s;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+/*  ОСНОВНОЙ */
+
+.checkout {
+  padding: 60px 0 140px; /*  отступ сверху 60, снизу 140 */
+}
+
+.checkout-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.checkout-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* "к оплате" */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /*2:1 левая под товар, правая под оплату*/
+  gap: 40px;
+}
+
+/* карточка товара */
+.product-card {
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+
+  display: grid;
+  grid-template-columns: 240px 1fr; /* левая колонка фиксирована 240 под картинку */
+  gap: 32px;
+}
+
+.product-image {
+  width: 100%; /* ширины своей колонки  */
+  border-radius: 10px;
+}
+
+.product-info {    /* вертикальная сетка */
+  display: grid;
+  row-gap: 8px;
+  align-content: flex-start;  /* к верху блока */
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-size {
+  font-size: 14px;
+  color: #777;
+}
+
+.product-price {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* оплата */
+.pay-card {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 32px 28px;
+
+  display: grid; /* грид на одну колонку, элементы идут сверху вниз */
+  row-gap: 10px;
+}
+
+.pay-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pay-caption {
+  font-size: 12px;
+  color: #777;
+}
+
+.pay-final {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* кнопка Далее */
+.pay-btn {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 10px;
+
+  background: #0D4BFF;      
+  border: 1px solid #0D4BFF;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease; /* плавный переход */
+}
+
+/* ховер обвожка */
+.pay-btn:hover {
+  background: transparent;
+  border-color: #000;
+  color: #000;
+}
+
+/* ФУТЕР*/
+
+.footer {
+  width: 100%;
+  background: #f7f5e9;
+  border-top: 1px solid #ddd;
+  padding: 32px 0 60px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*  три равные колонки // 1 единица доли свободного пространства */
+  gap: 40px;
+  font-size: 14px;
+  color: #000;
+}
+
+/* АДАПТИВ */
+
+.page-checkout.mobile .header-inner {
+  padding: 16px;
+}
+
+.page-checkout.mobile .header-title {
+  font-size: 32px; /*  адаптив текста для мобилки , те уменьшение тексста */
+}
+
+.page-checkout.mobile .header-nav {
+  padding: 0 16px 10px;
+  grid-auto-flow: row; /*  вертиуальное меню */
+  row-gap: 8px;
+}
+
+.page-checkout.mobile .checkout-inner {
+  padding: 0 16px;
+}
+
+.page-checkout.mobile .checkout-grid {
+  grid-template-columns: 1fr; /*  пункты меню идут друг под другом */
+  row-gap: 24px;
+}
+
+/*.page-checkout.mobile .product-card {
+  grid-template-columns: 1fr;
+}  
+
+.page-checkout.mobile .product-image {
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.page-checkout.mobile .footer-inner {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+*/
